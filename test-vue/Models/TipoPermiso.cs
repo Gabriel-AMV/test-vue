@@ -9,6 +9,7 @@ namespace test_vue.Models
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
+        public IList<Permiso> Permisos { get; set; }
 
     }
 }

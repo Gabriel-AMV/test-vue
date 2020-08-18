@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace test_vue.Models
 {
-    public class Permisos
+    public class Permiso
     {
         public int Id { get; set; }
         public string NombreEmpleado { get; set; }
