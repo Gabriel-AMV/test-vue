@@ -10,8 +10,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-awesome": "^4.1.0"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.7.0",
