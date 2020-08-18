@@ -1,16 +1,20 @@
 <template>
   <div id="app">
     <Header />
+    <TypePermits/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
+import TypePermits from './components/TypePermits'
+
 
 export default {
   name: 'App',
   components: {
     Header,
+    TypePermits
   }
 }
 </script>
