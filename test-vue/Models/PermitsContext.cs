@@ -28,6 +28,7 @@ namespace test_vue.Models
             // Validations for TipoPermiso table
 
             modelBuilder.Entity<TipoPermiso>().Property(p => p.Descripcion).IsRequired();
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
