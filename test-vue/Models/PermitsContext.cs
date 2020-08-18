@@ -10,7 +10,6 @@ namespace test_vue.Models
     {
         public DbSet<TipoPermiso> TiposPermisos { get; set; }
         public DbSet<Permiso> Permisos { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Permiso>()

@@ -13,13 +13,7 @@ namespace test_vue.Controllers
     [ApiController]
     public class PermitsController : ControllerBase
     {
-        private readonly PermitsContext _context;
-
-        public PermitsController(PermitsContext context)
-        {
-            _context = context;
-        }
-
+        private readonly PermitsContext _context = new PermitsContext();
 
         // GET: api/PaymentDetails
         [HttpGet]

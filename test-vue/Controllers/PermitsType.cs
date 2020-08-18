@@ -12,15 +12,11 @@ namespace test_vue.Controllers
     [ApiController]
     public class PermitsType : ControllerBase
     {
-        private readonly PermitsContext _context;
+        private readonly PermitsContext _context = new PermitsContext();
 
-        public PermitsType(PermitsContext context)
-        {
-            _context = context;
-        }
         public IActionResult GetPermitsType()
         {
-            return Ok(_context.TiposPermisos);
+            return Ok(_context.TiposPermisos.Select(t => new { value = t.Id, text = t.Descripcion }));
         }
 
     }
