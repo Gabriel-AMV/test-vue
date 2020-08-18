@@ -29,11 +29,20 @@ namespace test_vue.Models
 
             modelBuilder.Entity<TipoPermiso>().Property(p => p.Descripcion).IsRequired();
 
+
+            // Seeding TipoPermiso table
+
+            modelBuilder.Entity<TipoPermiso>().HasData(
+                 new { Id = 1, Descripcion = "Enfermedad o Lesión" },
+                 new { Id = 2, Descripcion = "Diligencia" },
+                 new { Id = 3, Descripcion = "Problema de transporte" },
+                 new { Id = 4, Descripcion = "Por servicio a jurado" },
+                 new { Id = 5, Descripcion = "Otros" });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-          optionsBuilder.UseSqlServer(@"Server=DESKTOP-GMTTGAO;Database=PermitsDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-GMTTGAO;Database=PermitsDB;Trusted_Connection=True;");
         }
 
     }
