@@ -65,7 +65,7 @@ export default {
     this.loadPermits();
   },
   mounted() {
-    this.$root.$on("bv::modal::hide", this.loadPermits());
+    this.$root.$on("bv::modal::hide",()=> this.loadPermits());
   },
   methods: {
     AddOrEdit(obj, isEdit = false) {
