@@ -115,11 +115,7 @@ export default {
         });
     },
   },
-  mounted() {
-    this.$root.$on("bv::modal::hide", () => {
-      this.loadPermits();
-    });
-  },
+ 
 };
 </script>
 
