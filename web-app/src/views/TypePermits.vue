@@ -5,14 +5,12 @@
         <h4 class="font-weight-bold">Tipos de Permisos</h4>
       </b-col>
       <b-col>
-        <br />
         <b-button
           @click="addOrEditModal({})"
-          size="sm"
           class="float-right"
           variant="outline-success"
         >
-          <b-icon icon="plus"></b-icon>Agregar
+          <b-icon icon="plus-circle"></b-icon>
         </b-button>
       </b-col>
     </b-row>
@@ -28,11 +26,11 @@
         <tr v-for="(pt, i) in permitsType" :key="i">
           <td>{{ pt.descripcion }}</td>
           <td>
-            <b-button @click="addOrEditModal(pt)" size="sm" class="linkWarning" variant="link">
+            <b-button @click="addOrEditModal(pt)" size="sm"  variant="outline-dark">
               <b-icon icon="pencil"></b-icon>
-            </b-button>
-            <b-button @click="remove(pt)" size="sm" class="linkDanger" variant="link">
-              <b-icon icon="x"></b-icon>
+            </b-button>&nbsp;
+            <b-button @click="remove(pt)" size="sm" variant="outline-danger">
+              <b-icon icon="trash"></b-icon>
             </b-button>
           </td>
         </tr>
@@ -170,13 +168,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.linkWarning {
-  color: #daa404 !important;
-}
-
-.linkDanger {
-  color: #b60c0c !important;
-}
-</style>
