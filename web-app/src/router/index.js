@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import TypePermits from '../views/TypePermits'
+import Permits from '../views/Permits'
+
 Vue.use(VueRouter)
 
 const routes = [
 
     {
         path: '/',
-        name: 'permitstype',
-        component: TypePermits
+        name: 'Permits',
+        component: Permits
     },
     {
         path: '/permitstype',

@@ -6,13 +6,17 @@
       </b-col>
       <b-col>
         <br />
-        <b-button @click="addOrEditModal({})" size="sm" class="float-right" variant="outline-success">
+        <b-button
+          @click="addOrEditModal({})"
+          size="sm"
+          class="float-right"
+          variant="outline-success"
+        >
           <b-icon icon="plus"></b-icon>Agregar
         </b-button>
       </b-col>
     </b-row>
-    <hr />
-
+  <br>
     <table class="table table-sm table-bordered">
       <thead>
         <tr>
@@ -29,7 +33,7 @@
           <td>{{ pt.descripcion }}</td>
           <td>
             <b-button @click="addOrEditModal(pt)" size="sm" class="linkWarning" variant="link">
-                <b-icon icon="pencil"></b-icon>
+              <b-icon icon="pencil"></b-icon>
             </b-button>
             <b-button @click="remove(pt)" size="sm" class="linkDanger" variant="link">
               <b-icon icon="x"></b-icon>
@@ -80,34 +84,58 @@ export default {
     },
 
     addOrEditModal(obj) {
-    this.selectedPermitType = obj;
+      this.selectedPermitType = obj;
 
-      if (this.selectedPermitType.id){ 
+      if (this.selectedPermitType.id) {
         this.message = "Editar";
         this.isEdit = true;
-      }
-      else {
-        this.message = "Agregar"
+      } else {
+        this.message = "Agregar";
         this.isEdit = false;
       }
-       this.$bvModal.show("addPermitType");
+      this.$bvModal.show("addPermitType");
     },
-
+    catchError(errMessage){
+          console.log(errMessage);
+          this.$swal("Ops!", "Ha ocurrido un error", "error");
+    },
     addOrEdit() {
       if (this.isEdit === false) {
-        this.axios.post(this.baseUrl,  {Descripcion: this.selectedPermitType.descripcion}).then(()=> {
-            this.$swal("¡Bien hecho!", "Tipo de permiso agregado", "success").then(this.loadPermitsType())
-            }).catch(console.error)
-      }
-      else {
-        this.axios.put(this.baseUrl + this.selectedPermitType.id, {Id : this.selectedPermitType.id,Descripcion: this.selectedPermitType.descripcion}).then(()=> {
-            console.log('HEY')
-            console.log({Id : this.selectedPermitType.id,Descripcion: this.selectedPermitType.descripcion})
-            this.$swal("¡Bien hecho!", "Tipo de permiso agregado", "success").then(this.loadPermitsType())
-            }).catch(console.error)
+        this.axios
+          .post(this.baseUrl, {
+            Descripcion: this.selectedPermitType.descripcion,
+          })
+          .then(() => {
+            this.$swal(
+              "¡Bien hecho!",
+              "Tipo de permiso agregado",
+              "success"
+            ).then(() => {
+              this.loadPermitsType();
+              this.$bvModal.hide("addPermitType");
+            });
+          })
+          .catch(this.catchError);
+      } else {
+        this.axios
+          .put(this.baseUrl + this.selectedPermitType.id, {
+            Id: this.selectedPermitType.id,
+            Descripcion: this.selectedPermitType.descripcion,
+          })
+          .then(() => {
+            this.$swal(
+              "¡Bien hecho!",
+              "Tipo de permiso agregado",
+              "success"
+            ).then(() => {
+              this.loadPermitsType();
+              this.$bvModal.hide("addPermitType");
+            });
+          })
+          .catch(this.catchError);
       }
 
-       this.$bvModal.show("addPermitType");
+      this.$bvModal.show("addPermitType");
     },
 
     remove(obj) {
@@ -143,12 +171,6 @@ export default {
           this.$swal("Ops!", "Ha ocurrido un error", "error");
         });
     },
-    //   },
-    //   mounted() {
-    //     this.$root.$on("bv::modal::hide", () => {
-    //       this.CargarPermisos();
-    //     });
-    //   },
   },
 };
 </script>

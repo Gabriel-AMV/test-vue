@@ -19,7 +19,14 @@ namespace test_vue.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPermits()
         {
-            return Ok(await _context.Permisos.ToListAsync());
+            return Ok(await _context.Permisos.Select(p => new {
+                p.Id,
+                p.NombreEmpleado,
+                p.ApellidosEmpleado,
+                p.Fecha,
+                p.TipoPermisoId,
+                TipoPermiso = p.TipoPermiso.Descripcion
+            }).ToListAsync());
         }
 
         // GET: api/Permits/5
