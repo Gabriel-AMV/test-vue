@@ -8,17 +8,15 @@
         <b-col>
           <br />
           <b-button @click="AddOrEdit({})" size="sm" class="float-right " variant="outline-success">
-            <b-icon icon="plus"></b-icon>Agregar
+            <b-icon icon="plus"></b-icon>Solicitar
           </b-button>
         </b-col>
       </b-row>
       <br>
-      <table class="table table-sm table-bordered">
+     <table class="table table-bordered">
         <thead>
           <tr >
-            <th>
-              <b-icon icon="hash"></b-icon>
-            </th>
+           
             <th>Empleado:</th>
             <th>Tipo de permiso:</th>
             <th>Fecha:</th>
@@ -27,7 +25,6 @@
         </thead>
         <tbody>
           <tr v-for="(permit, i) in permits" :key="i">
-            <td>{{ i + 1}}</td>
             <td>{{ permit.nombreEmpleado }} {{ permit.apellidosEmpleado }}</td>
             <td>{{ permit.tipoPermiso }}</td>
             <td>{{ permit.fecha | datefilter  }}</td>

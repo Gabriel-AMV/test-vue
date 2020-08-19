@@ -44,8 +44,7 @@
             type="submit"
             class="float-right"
             variant="success"
-            size="sm"
-          >Guardar</b-button>
+          >{{permit.isEdit ? "Editar" : "Solicitar"}}</b-button>
         </div>
       </form>
     </b-modal>
@@ -128,7 +127,7 @@ export default {
           this.axios
             .post(this.baseUrl + "api/permits", this.permit)
             .then(() => {
-              this.$swal("¡Bien hecho!", "Permiso agregado", "success").then(
+              this.$swal("¡Bien hecho!", "Permiso solicitado", "success").then(
                 () => {
                   this.$bvModal.hide("permitFormModal");
                 }

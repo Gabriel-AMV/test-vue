@@ -17,19 +17,15 @@
       </b-col>
     </b-row>
   <br>
-    <table class="table table-sm table-bordered">
+        <table class="table table-bordered">
       <thead>
         <tr>
-          <th>
-            <b-icon icon="hash"></b-icon>
-          </th>
           <th>Descripcion:</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(pt, i) in permitsType" :key="i">
-          <td>{{ i + 1}}</td>
           <td>{{ pt.descripcion }}</td>
           <td>
             <b-button @click="addOrEditModal(pt)" size="sm" class="linkWarning" variant="link">
