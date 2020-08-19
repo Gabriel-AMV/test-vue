@@ -76,7 +76,7 @@ export default {
     loadPermitsType() {
       this.axios.get(this.baseUrl).then((response) => {
         this.permitsType = response.data;
-      });
+      }).catch(this.catchError);
     },
 
     addOrEditModal(obj) {

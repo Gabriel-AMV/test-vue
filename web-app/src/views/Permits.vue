@@ -78,7 +78,7 @@ export default {
     loadPermits () {
       this.axios.get(this.baseUrl + "api/permits").then((response) => {
         this.permits = response.data;
-      });
+      }).catch(console.error);
     },
 
    remove(obj) {
