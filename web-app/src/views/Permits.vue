@@ -30,7 +30,7 @@
             <td>{{ i + 1}}</td>
             <td>{{ permit.nombreEmpleado }} {{ permit.apellidosEmpleado }}</td>
             <td>{{ permit.tipoPermiso }}</td>
-            <td>{{ permit.fecha  }}</td>
+            <td>{{ permit.fecha | datefilter  }}</td>
             <td>
               <b-button @click="AddOrEdit(permit, true)" size="sm" class="linkWarning" variant="link">
                 <b-icon icon="pencil"></b-icon>
